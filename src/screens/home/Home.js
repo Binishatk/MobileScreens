@@ -60,7 +60,7 @@ import TopNavigation from '../../components/home/TopNavigater'
       </View>
         </View>
         <RecentLearning/>
-        <View style={{flexDirection:"row",justifyContent:"space-between"}}>
+        <View style={{flexDirection:"row",justifyContent:"space-between",marginVertical:20}}>
 
         <Text>Recomended</Text>
         <Text>Algebra</Text>

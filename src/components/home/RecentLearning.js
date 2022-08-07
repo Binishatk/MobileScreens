@@ -38,10 +38,10 @@ const Item = ({ item, onPress,  }) => (
     <View style={{marginHorizontal:5,width:180,height:188,borderWidth:.5,borderColor:"#E0E0E0"}}>
  <Image source={item.image}/>
  <Text style={{color:"black",paddingVertical:8,fontWeight:"bold"}}>{item.subject}</Text>
- <Text>{item.description}</Text>
+ <Text style={{  color:"#181818",}}>{item.description}</Text>
  <View style={{flexDirection:"row",marginTop:20}}>
     <Image source={progress}/>
-    <Text>{item.progressCount}/10</Text>
+    <Text style={{  color:"#181818",}}>{item.progressCount}/10</Text>
 
  </View>
     </View>

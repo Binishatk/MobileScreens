@@ -1,6 +1,6 @@
 
 
- import React from 'react';
+ import React ,{useState}from 'react';
 
 
  import {
@@ -11,14 +11,17 @@ Text,
  } from 'react-native';
  
 import visa from '../../assets/visa.png'
-import card from '../../assets/card.png'
+import cardImage from '../../assets/card.png'
 import applePay from '../../assets/apple.png'
-import payPal from '../../assets/payPal.png'
+import payPalImage from '../../assets/payPal.png'
 import paymentSteps from '../../assets/PaymentSteps.png' 
 import { Formik } from 'formik';
  
  const Payment= () => {
-
+  const [payPal, setPayPal] = useState(true);
+ 
+  const [card, setCard] = useState(false);
+  const [apple, setApple] = useState(false);
  
  
  
@@ -35,10 +38,12 @@ import { Formik } from 'formik';
               {/* <View style={{marginVertical:20}}> */}
 
              
-              <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:20,borderWidth:1,borderColor:"#9D9B9B",padding:20,marginTop:20}}>
+              <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:20,borderWidth:1,borderColor:card?'#51C3FE':'#9D9B9B',padding:20,marginTop:20}}>
 
               <View style={{flexDirection:"row",}}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=>{setPayPal(false),
+        setCard(true),
+        setApple(false)}}>
 
                   
                       <View style={[{
@@ -46,18 +51,20 @@ import { Formik } from 'formik';
         width: 20,
         borderRadius: 12,
         borderWidth: 2,
-        borderColor: '#9D9B9B',
+        // borderColor: '#9D9B9B',
+        borderColor: card?'#51C3FE':'#9D9B9B',
         alignItems: 'center',
         justifyContent: 'center',
       }, ]}>
         
       
-            <View style={{
-              height: 12,
-              width: 12,
-              borderRadius: 6,
-            //   backgroundColor: '#51C3FE',
-            }}/>
+        <View style={{
+height: 12,
+width: 12,
+borderRadius: 6,
+// backgroundColor: '#51C3FE',
+backgroundColor:card?'#51C3FE':null
+}}/>
             
         </View>
         </TouchableOpacity>
@@ -66,7 +73,7 @@ import { Formik } from 'formik';
         </View>
         <View style={{flexDirection:"row"}} >
         <Image source={visa}></Image>
-        <Image source={card}></Image>
+        <Image source={cardImage}></Image>
         </View>
     
       
@@ -74,10 +81,12 @@ import { Formik } from 'formik';
 
 
  </View>
- <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:20,borderWidth:2,borderColor:"#51C3FE",padding:20,marginTop:20}}>
+ <View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:20,borderWidth:2,borderColor:payPal?'#51C3FE':'#9D9B9B',padding:20,marginTop:20}}>
 
 <View style={{flexDirection:"row",}}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={()=>{setPayPal(true),
+        setCard(false),
+        setApple(false)}}>
 
     
         <View style={[{
@@ -85,46 +94,8 @@ height: 20,
 width: 20,
 borderRadius: 12,
 borderWidth: 2,
-borderColor: '#51C3FE',
-alignItems: 'center',
-justifyContent: 'center',
-}, ]}>
-
-
-<View style={{
-height: 12,
-width: 12,
-borderRadius: 6,
-backgroundColor: '#51C3FE',
-}}/>
-
-</View>
-</TouchableOpacity>
-
-<Text style={{paddingLeft:10}}>Pay Pal </Text>
-</View>
-
-<Image source={payPal}></Image>
-
-
-
-
-
-
-
-</View>
-<View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:20,borderWidth:1,borderColor:"#9D9B9B",padding:20,marginTop:20}}>
-
-<View style={{flexDirection:"row",}}>
-      <TouchableOpacity>
-
-    
-        <View style={[{
-height: 20,
-width: 20,
-borderRadius: 12,
-borderWidth: 2,
-borderColor: '#9D9B9B',
+// borderColor:'#51C3FE',
+borderColor: payPal?'#51C3FE':'#9D9B9B',
 alignItems: 'center',
 justifyContent: 'center',
 }, ]}>
@@ -135,6 +106,51 @@ height: 12,
 width: 12,
 borderRadius: 6,
 // backgroundColor: '#51C3FE',
+backgroundColor:payPal?'#51C3FE':null
+}}/>
+
+</View>
+</TouchableOpacity>
+
+<Text style={{paddingLeft:10}}>PayPal </Text>
+</View>
+
+{/* <Image source={}></Image> */}
+
+
+<Image source={payPalImage}/>
+
+
+
+
+</View>
+<View style={{flexDirection:"row",justifyContent:"space-between",marginHorizontal:20,borderWidth:1,borderColor:apple?'#51C3FE':'#9D9B9B',padding:20,marginTop:20}}>
+
+<View style={{flexDirection:"row",}}>
+      <TouchableOpacity onPress={()=>{setPayPal(false),
+        setCard(false),
+        setApple(true)}}>
+
+    
+        <View style={[{
+height: 20,
+width: 20,
+borderRadius: 12,
+borderWidth: 2,
+// borderColor: '#9D9B9B',
+borderColor: apple?'#51C3FE':'#9D9B9B',
+alignItems: 'center',
+justifyContent: 'center',
+}, ]}>
+
+
+
+<View style={{
+height: 12,
+width: 12,
+borderRadius: 6,
+// backgroundColor: '#51C3FE',
+backgroundColor:apple?'#51C3FE':null
 }}/>
 
 </View>
@@ -193,7 +209,7 @@ borderRadius: 6,
   
 <Text>$120</Text>
         </View>
-        <View style={{width:"60%"}}>
+        <View style={{width:"40%"}}>
         <TouchableOpacity
 		
     style={styles.appButtonContainer}

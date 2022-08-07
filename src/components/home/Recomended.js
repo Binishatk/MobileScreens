@@ -38,10 +38,10 @@ const Item = ({ item, onPress,  }) => (
     <View style={{marginHorizontal:10,width:139,height:188,borderWidth:.5,borderColor:"#E0E0E0"}}>
  <Image source={item.image} style={{}}/>
  {/* <Text style={{color:"black",paddingVertical:8,fontWeight:"bold"}}>{item.subject}</Text> */}
- <Text>{item.description}</Text>
- <View style={{flexDirection:"row",marginTop:20,justifyContent:"space-between"}}>
- <Text style={{fontSize:8}}>{item.lesson}</Text>
-    <Text style={{fontSize:8}}>{item.time}</Text>
+ <Text style={{color:"#181818"}}>{item.description}</Text>
+ <View style={{color:"#181818",flexDirection:"row",marginTop:20,justifyContent:"space-between"}}>
+ <Text style={{fontSize:8,color:"#181818"}}>{item.lesson}</Text>
+    <Text style={{fontSize:8,color:"#181818"}}>{item.time}</Text>
 
  </View>
     </View>

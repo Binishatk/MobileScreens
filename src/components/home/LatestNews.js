@@ -37,10 +37,10 @@ const Item = ({ item, onPress,  }) => (
  {/* <Text style={{color:"black",paddingVertical:8,fontWeight:"bold"}}>{item.subject}</Text> */}
  <View style={{marginHorizontal:20,width:"50%",paddingRight:20}}>
  <Text style={{color:"black",fontSize:14,fontWeight:"bold",paddingVertical:5}}>{item.subject}</Text>
- <Text>{item.title}</Text>
+ <Text style={{  color:"#181818",}}>{item.title}</Text>
  <View style={{flexDirection:"row",marginTop:20,justifyContent:"space-between"}}>
- <Text style={{fontSize:8}}>{item.time}</Text>
-    <Text style={{fontSize:8}}>{item.messageCount}</Text>
+ <Text style={{fontSize:8,color:"#181818"}}>{item.time}</Text>
+    <Text style={{fontSize:8,color:"#181818"}}>{item.messageCount}</Text>
 
  </View>
  </View>
